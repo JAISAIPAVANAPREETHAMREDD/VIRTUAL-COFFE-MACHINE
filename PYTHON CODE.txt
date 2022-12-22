@@ -1,0 +1,146 @@
+print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tVIRTUAL COFFEE MACHINE")
+logo=''' ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀        ⣀⣀⣠⣤⣤⣤⣤⣤⣤⣤⣤⣤⣄⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                ⣠⣤⣶⡾⠿⠟⠛⠛⢉⣉⣉⣉⣉⡉⣉⡉⡙⠛⠛⠿⠿⣷⣶⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                ⣠⣶⠿⠛⠉⣀⣤⣴⡶⣟⢿⡻⣭⠯⣝⡭⡽⣍⠿⣹⣛⡟⡶⢶⣤⣌⡙⠻⢿⣶⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀                ⣠⣿⠟⠁⣠⣶⢿⣻⡽⣣⢟⡼⣣⢟⣴⢻⡼⣜⣳⣎⣟⡱⢮⡹⣭⠳⡞⣜⣻⢳⣦⡘⢻⣷⣄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀                ⢰⣿⠃⠠⢼⡿⣭⡟⣵⣫⠷⣏⡿⣭⢟⡾⣭⢷⣫⠷⣞⢾⣹⢏⣷⢳⢯⡝⣞⡲⢏⡼⣻⡄⣹⣟⣦⢤⣀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀                ⣻⣿⠀⠂⠌⢿⣧⣛⢧⣏⢿⡹⣞⡵⣫⢞⡵⣫⢞⡽⣎⢷⡹⣞⡼⣫⢞⡽⢮⡝⣯⣖⡟⢣⠐⣯⢉⡙⠛⢯⣶⣄⠀
+⠀⠀⠀⠀⠀⠀⠀                ⣻⣯⠐⠈⠄⠠⠈⠻⠾⣜⣧⢻⣜⡳⣝⢮⡳⣝⢮⡳⣝⢮⡳⣝⢾⡱⣏⣞⣧⠿⠚⣁⠰⡁⠎⣿     ⠙⣯⣦
+⠀⠀⠀⠀⠀⠀⠀                ⣹⣷⠀⠌⠠⢁⠅⢢⠐⣈⢉⡉⠚⠑⠛⠮⠳⠽⠎⠷⠝⠮⠳⢋⠞⠱⡉⢍⡠⢆⡱⢌⠱⡘⠰⣿      ::⣿
+⠀⠀⠀⠀⠀⠀⠀                ⢸⣿⡀⠘⣀⠂⠌⣀⠣⢐⠢⢌⠡⣉⠒⡐⢆⢂⠒⡐⢂⠆⡑⠢⢌⢡⠉⠦⡑⢢⠜⣠⠣⣁⢻⣿      ⢻⣿
+⠀⠀⠀⠀⠀⠀⠀⠀                ⣿⡇⠐⠠⢈⠐⠠⠠⢁⠘⢠⣡⠶⠓⠾⢤⡊⠑⣌⡦⠼⠦⣥⡌⢂⠍⢢⠑⡌⢲⢀⠳⣈⣾⣿     ⣸⣿⡟
+⠀⠀⠀⠀⠀                ⢀⣤⣾⠿⢿⡀⢑⠠⠈⠄⠡⠈⢄⡟⠁⠀  virtual   ⣦⠊⢆⠱⡘⢤⡉⢖⣡⡿⣁   ⣶⡿⢋
+⠀⠀⠀                ⣠⣾⠿⠋⢁⠀⡘⣧⠀⢂⠉⠤⠁⠌⠸⡇⠀⠀⠀⠀coffee⠀    ⣄⣻⠐⡌⢢⡑⠦⣉⢆⡾⡑:⢟⢿⣻⣕⠀⠀
+⠀                ⢠⣾⠟⢁⠠⠐⠀⢂⠀⠹⣦⠈⡐⠠⠁⠌⡀⢳⡄⠀⠀machine⠀  ⡑⢦⡟⢠⠜⡡⢜⢢⡑⣾⡷⣛⢭⡚⡵⣊⡝⢿⣧⡀
+                ⣾⣿⠏⢀⠂⠠⢈⠐⠠⠐⠀⠹⣦⠀⢡⠈⡐⢀⠂⠙⢦⡀⠀⠀❤  ⢀⣢⡼⢏⡰⢃⢎⠱⡊⢆⣾⢋⠶⣩⢖⡱⢣⠞⣌⠧⢻⣷
+                ⣻⣿⠀⠀⠂⠁⠄⡈⠀⠄⠡⢀⠘⢷⡀⠢⠐⡠⢈⠐⡀⢉⠳⢤⣀⠌⣐⣤⠗⡫⢔⢣⡘⠬⣌⠓⣸⡾⢥⣋⢞⡡⢎⡵⢋⠞⣈⠦⣉⣿:
+                ⢻⣿⡀⠠⠁⠌⢀⠐⠈⢀⠂⠄⢂⠈⠹⢦⣁⠐⠠⠌⡐⣀⠆⡔⢪⡙⣍⢢⠣⡑⢎⠴⣈⠓⣤⡟⠯⣔⢣⠞⡬⢓⢩⡐⢣⡘⠤⢒⣰⣿
+                ⠈⢻⣷⡀⠐⢈⠠⠀⡁⠠⠐⢀⠂⠈⠄⡀⠉⠛⠷⣬⣱⣨⠜⣨⠑⡔⣂⠣⡱⣉⣬⡲⠼⡛⢕⡊⡓⢌⠥⠚⣄⠣⢒⠌⡒⠬⡘⢢⣾⠟
+         ⠀       ⠛⣿⣦⣀⠠⠁⠄⡐⠈⢀⠠⠁⡐⠠⠁⠂⠄⡀⠌⠉⡉⠍⠛⡉⢍⡙⢡⡉⡔⢰⢑⡘⢢⢡⡑⠪⢌⠓⡤⢉⠲⢌⡑⣢⣽⡿⠋⠀
+⠀⠀⠀                ⠈⠙⠿⣷⣤⣀⠀⡁⠂⠠⠐⠀⠄⡈⠐⠀⠄⡈⠐⠠⠌⡑⢈⠆⡘⢄⠆⡅⢣⢌⡘⢡⠒⣌⠱⢌⠒⡰⢉⣒⣬⣾⠿⠋⠀⠀⠀
+⠀⠀⠀⠀⠀⠀                ⠈⠙⠻⢿⣶⣦⣅⣈⡐⠀⠠⠁⠌⠀⠄⡁⠂⠔⡈⠔⡨⢐⡡⢊⠔⡡⢆⡘⢡⠊⣄⣣⣬⣶⣷⡿⠟⠋⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                  ⠈⠉⠛⠻⠿⠿⣷⣶⣶⣥⣦⣤⣥⣢⣤⣡⣆⣥⣴⣥⣮⣴⣶⣾⣷⠿⠿⠛⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                    ⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+'''
+print("\t\t",logo)
+MENU = {
+    "Continental coffee": {
+        "ingredients": {
+            "milk": 50,
+            "water": 50,
+            "coffee powder": 30,
+        },
+        "cost": 100,
+    },
+    "Black coffee": {
+        "ingredients": {
+            "water": 50,
+            "coffee powder": 50,
+        },
+        "cost": 120,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "milk": 50,
+            "espresso": 30,
+            "coffee powder": 50,
+        },
+        "cost": 130,
+    },
+}
+resources = {
+    "water": 3000,
+    "milk": 3000,
+    "coffee powder": 3000,
+    "espresso": 2000,
+}
+money={
+    "ten rupee notes": 30,
+    "twenty rupee notes": 30,
+    "fifty rupee notes": 30,
+    "hundred rupee notes": 30,
+}
+money = 5400
+coffee_maker = False
+while not coffee_maker:
+    user_choice = int(input("What coffee do you want to order\n 0. Resources\n 1. Amount in the Machine\n 2. Continental Coffee\n 3. Black Coffee\n 4. Cappuccino\n"))
+    if user_choice == 0:
+        print(resources)
+    elif user_choice == 1:
+        print(money)
+    elif user_choice == 2:
+        if resources["milk"] >= 50 and resources["water"] >= 50 and resources["coffee powder"] >= 30:
+            print("The cost of Continental coffee is 100\n")
+            print("Please insert the notes\n")
+            ten_rupee_notes = int(input("Insert the ten Rupee notes: "))
+            twenty_rupee_notes = int(input("Insert the Twenty Rupee notes: "))
+            fifty_rupee_notes = int(input("Insert the Fifty Rupee notes:  "))
+            hundred_rupee_notes = int(input("Insert the Hundred Rupee notes: "))
+            user_note_cost = ((ten_rupee_notes * 10) + (twenty_rupee_notes*20) + (fifty_rupee_notes*50) + (hundred_rupee_notes*100))
+            if user_note_cost == 100:
+                print("Take your Continental coffee and have a nice day! ")
+            elif user_note_cost > 100:
+                user_change = round((user_note_cost - 100), 2)
+                print(f"Take your Continental coffee, your change is {user_change} and have a nice day")
+            money += 100
+            #resources["amount"] = money
+            resources["water"] -= 50
+            resources["milk"] -= 50
+            resources["coffee powder"] -= 30
+            if user_note_cost < 100:
+                print("Your transaction is failed and your money is refunded successfully")
+        else:
+            print("Sorry resources are not enough")
+            coffee_maker = False
+    elif user_choice == 3:
+        if resources["water"] >= 50 and resources["coffee powder"] >= 50:
+            print("The cost of Black coffee is 120\n")
+            print("Please insert the notes")
+            ten_rupee_notes = int(input("Insert the Ten rupee notes: "))
+            twenty_rupee_notes = int(input("Insert the Twenty Rupee notes: "))
+            fifty_rupee_notes = int(input("Insert the Fifty Rupee notes:  "))
+            hundred_rupee_notes = int(input("Insert the Hundred Rupee notes: "))
+            user_note_cost = ((ten_rupee_notes * 10) + (twenty_rupee_notes * 20) + (fifty_rupee_notes * 50) + (hundred_rupee_notes * 100))
+            if user_note_cost == 120:
+                print("Take your Black coffee and have a nice day! ")
+            elif user_note_cost > 120:
+                user_change = round((user_note_cost - 120), 2)
+                print(f"Take your Black coffee, your change is {user_change} and have a nice day")
+            money += 120
+            #resources["amount"] = money
+            resources["water"] -= 50
+            resources["coffee powder"] -= 50
+            if user_note_cost < 120:
+                print("Your transaction is failed and your money is refunded successfully")
+        else:
+            print("Sorry resources are not enough")
+            coffee_maker = False
+
+    elif user_choice == 4:
+        if resources["espresso"] >= 30 and resources["coffee powder"] >= 50 and resources["milk"] >= 50:
+            print("The cost of cappuccino coffee is 130\n")
+            print("Please insert the notes")
+            ten_rupee_notes = int(input("Insert the Ten rupee notes: "))
+            twenty_rupee_notes = int(input("Insert the Twenty Rupee notes: "))
+            fifty_rupee_notes = int(input("Insert the Fifty Rupee notes:  "))
+            hundred_rupee_notes = int(input("Insert the Hundred Rupee notes: "))
+            user_note_cost = ((ten_rupee_notes * 10) + (twenty_rupee_notes * 20) + (fifty_rupee_notes * 50) + (hundred_rupee_notes * 100))
+            if user_note_cost == 130:
+                print("Take your cappuccino coffee and have a nice day! ")
+            elif user_note_cost > 130:
+                user_change = round((user_note_cost - 130), 2)
+                print(f"Take your cappuccino coffee, your change is {user_change} and have a nice day")
+            money += 130
+            #resources["amount"] = money
+            resources["espresso"] -= 30
+            resources["coffee powder"] -= 50
+            resources["milk"] -= 50
+            if user_note_cost < 130:
+                print("Your transaction is failed and your money is refunded successfully")
+        else:
+            print("Sorry resources are not enough")
+            coffee_maker = False
+    else:
+        print("Please enter valid choice.")
+        coffee_maker = False
